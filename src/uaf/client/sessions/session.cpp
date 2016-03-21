@@ -682,6 +682,7 @@ namespace uaf
         uaf::SessionInformation info(
                 clientConnectionId_,
                 sessionState_,
+                uaf::serverstates::fromSdkToUaf(uaSession_->serverState()),
                 serverUri_,
                 sessionSettings_,
                 lastConnectionAttemptStep_,
@@ -967,6 +968,32 @@ namespace uaf
                                                                monitoringMode,
                                                                serviceSettings,
                                                                results);
+    }
+
+
+    // Get a structure definition
+    // =============================================================================================
+    Status Session::structureDefinition(
+    		const NodeId& 			dataTypeId,
+			StructureDefinition& 	definition)
+    {
+        Status ret;
+
+        UaNodeId uaNodeId;
+        UaStructureDefinition uaDef;
+
+        dataTypeId.toSdk(uaNodeId);
+
+        uaDef = uaSession_->structureDefinition(uaNodeId);
+
+        definition.fromSdk(uaDef);
+
+        if (definition.isNull())
+        	ret = DefinitionNotFoundError();
+        else
+        	ret = uaf::statuscodes::Good;
+
+        return ret;
     }
 
 

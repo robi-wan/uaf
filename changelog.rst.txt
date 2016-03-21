@@ -3,6 +3,44 @@ UAF changelog
 ====================================================================================================
 
 
+Version 2.1.0 @ 2016/03/14
+----------------------------------------------------------------------------------------------------
+
+- New feature (https://github.com/uaf/uaf/issues/94)
+  Added support for Structures, Unions, and arrays of Structures and Unions.
+  See examples/pyuaf/client/how_to_read_and_write_structures.py
+
+- bugfix in the CMake file of examples/uaf/src/client/CMakeLists.txt, which prevented the C++ 
+  examples from building correctly. (Reported and fixed by Hoang N.)
+
+
+Version 2.0.3 @ 2016/01/29
+----------------------------------------------------------------------------------------------------
+
+- bugfix/new feature (https://github.com/uaf/uaf/issues/95):
+  PyUAF did not handle empty arrays well (or not at all, depending on the datatype).
+  Empty arrays are now supported.
+
+- bugfix (https://github.com/uaf/uaf/issues/96):
+  The status codes of uaf::Client::setMonitoringMode were not updated correctly.
+  
+- bugfix (https://github.com/uaf/uaf/issues/97):
+  uaf::Client::setMonitoringMode of monitored items on multiple subscriptions only succeeded
+  for the first subscription, not for subsequent subscriptions.
+
+- new feature (https://github.com/uaf/uaf/issues/98):
+  Server states are now supported. They are defined by pyuaf.util.serverstates. The server state is
+  an attribute of pyuaf.client.SessionInformation, which can be retrieved by the method
+  pyuaf.client.Client.sessionInformation().
+
+
+Version 2.0.2 @ 2015/11/18
+----------------------------------------------------------------------------------------------------
+
+- The UAF is now compatible with the SDK v1.5.0. Thanks to jorrita and gitcyc for providing patches.
+  No API changes, but the PkiCertificate constructor has become deprecated (see SDK docs).
+
+
 Version 2.0.1 @ 2015/08/21
 ----------------------------------------------------------------------------------------------------
 

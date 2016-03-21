@@ -813,7 +813,7 @@ class Client(ClientBase):
                  :attr:`~pyuaf.util.PkiCertificate.Action_Reject` or 
                  :attr:`~pyuaf.util.PkiCertificate.Action_AcceptTemporarily` or 
                  :attr:`~pyuaf.util.PkiCertificate.Action_AcceptPermanently`.
-        :rtype: int
+        :rtype: ``int``
         """
         return pyuaf.util.PkiCertificate.Action_AcceptTemporarily
         
@@ -2451,6 +2451,26 @@ class Client(ClientBase):
                                               results)
         status.test()
         return results
+        
+            
+    def structureDefinition(self, dataTypeId):
+        """
+        Get a structure definition for the given datatype NodeId.
+        
+        :param dataTypeId:    NodeId of the datatype.
+        :type  dataTypeId:    :class:`~pyuaf.util.NodeId`.
+        :return:              The definition of this datatype. 
+        :rtype:               :class:`~pyuaf.util.StructureDefinition`.
+        :raise pyuaf.util.errors.DefinitionNotFoundError:
+             Will be raised if no definition could be found.
+        :raise pyuaf.util.errors.UafError:
+             Base exception, catch this to handle any UAF errors.
+        """
+        result = pyuaf.util.StructureDefinition()
+        status = ClientBase.structureDefinition(self, dataTypeId, result)
+        status.test()
+        return result
+        
         
         
     def processRequest(self, request, resultCallback=None, notificationCallbacks=[]):

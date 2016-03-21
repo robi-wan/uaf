@@ -33,7 +33,9 @@ set(  PYUAF_UTIL_TARGETS
       opcuaidentifiers
       opcuastatuscodes
       securitypolicies
+      structurefielddatatypes
       messagesecuritymodes
+      serverstates
       timestampstoreturn
       monitoringmodes
       browsedirections

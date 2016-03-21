@@ -68,10 +68,12 @@
 %import(module="pyuaf.util.opcuaidentifiers")       "pyuaf/util/util_opcuastatuscodes.i"
 %import(module="pyuaf.util.primitives")             "pyuaf/util/util_primitives.i"
 %import(module="pyuaf.util.securitypolicies")       "pyuaf/util/util_securitypolicies.i"
+%import(module="pyuaf.util.serverstates")           "pyuaf/util/util_serverstates.i"
 %import(module="pyuaf.util.monitoringmodes")        "pyuaf/util/util_monitoringmodes.i"
 %import(module="pyuaf.util.browsedirections")       "pyuaf/util/util_browsedirections.i"
 %import(module="pyuaf.util.nodeclasses")            "pyuaf/util/util_nodeclasses.i"
 %import(module="pyuaf.util.timestampstoreturn")     "pyuaf/util/util_timestampstoreturn.i"
+%import(module="pyuaf.util.structurefielddatatypes") "pyuaf/util/util_structurefielddatatypes.i"
 %import(module="pyuaf.util.__unittesthelper__")     "pyuaf/util/util___unittesthelper__.i"
 %import(module="pyuaf.util")                        "pyuaf/util/util___init__.i"
 
